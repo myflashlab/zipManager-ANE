@@ -1,7 +1,7 @@
 package 
 {
-	import com.doitflash.air.extensions.zip.ZipManager;
-	import com.doitflash.air.extensions.zip.ZipManagerEvent;
+	import com.myflashlab.air.extensions.zip.ZipManager;
+	import com.myflashlab.air.extensions.zip.ZipManagerEvent;
 	
 	import flash.desktop.NativeApplication;
 	import flash.desktop.SystemIdleMode;

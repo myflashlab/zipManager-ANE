@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/15.0">
   <id>com.doitflash.exZipManager</id>
-  <versionNumber>2.1</versionNumber>
+  <versionNumber>2.9</versionNumber>
   <supportedProfiles>mobileDevice</supportedProfiles>
   <filename>exZipManager</filename>
-  <name>exZipManager</name>
+  <name>ZIP ANE</name>
   <android>
     <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -67,6 +67,6 @@
     <image512x512>icons/icon_512.png</image512x512>
   </icon>
   <extensions>
-    <extensionID>com.doitflash.air.extensions.zipManager</extensionID>
+    <extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
   </extensions>
 </application>

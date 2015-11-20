@@ -1,4 +1,4 @@
-# Zip Manager ANE (Android+iOS)
+# Zip Manager ANE V2.9 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
@@ -20,8 +20,8 @@ you may like to see the ANE in action? check this out: https://github.com/myflas
 
 # AS3 API:
 ```actionscript
-import com.doitflash.air.extensions.zip.ZipManager;
-import com.doitflash.air.extensions.zip.ZipManagerEvent;
+import com.myflashlab.air.extensions.zip.ZipManager;
+import com.myflashlab.air.extensions.zip.ZipManagerEvent;
 
 var _ex:ZipManager = new ZipManager();
 _ex.addEventListener(ZipManagerEvent.START, onStart);
