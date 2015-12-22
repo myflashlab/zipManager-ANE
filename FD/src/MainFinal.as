@@ -155,6 +155,9 @@ package
 		
 		private function init():void
 		{
+			// required only if you are a member of the club
+			ZipManager.clubId = "paypal-address-you-used-to-join-the-club";
+			
 			// initialize the extension
 			_ex = new ZipManager();
 			_ex.addEventListener(ZipManagerEvent.START, onStart);

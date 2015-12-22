@@ -1,4 +1,4 @@
-# Zip Manager ANE V2.9 (Android+iOS)
+# Zip Manager ANE V2.9.1 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
@@ -10,7 +10,7 @@ in AS3, there are many different zip libraries which will do the same thing but 
 
 using this extension will solve all the above problems. you will be amazed how fast it works no matter the size of the zip file. we tested with a ~1GB zip archive and it worked just fine :) 
 
-checkout here for the commercial version: http://myappsnippet.com/zip-manager-adobe-air-extension/
+checkout here for the commercial version: http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
 ![Zip Manager ANE](http://myappsnippet.com/wp-content/uploads/2015/05/zip-manager-adobe-air-extension_preview.jpg)
 
