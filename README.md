@@ -10,6 +10,9 @@ in AS3, there are many different zip libraries which will do the same thing but 
 
 using this extension will solve all the above problems. you will be amazed how fast it works no matter the size of the zip file. we tested with a ~1GB zip archive and it worked just fine :) 
 
+# asdoc
+[find the latest asdoc for this ANE here.](http://myflashlab.github.io/asdoc/com/myflashlab/air/extensions/zip/package-detail.html)
+
 # Demo .apk
 you may like to see the ANE in action? [Download demo .apk](https://github.com/myflashlab/zipManager-ANE/tree/master/FD/dist)
 
