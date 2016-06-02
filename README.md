@@ -56,6 +56,10 @@ function onComplete(e:ZipManagerEvent):void
 # Air .xml manifest
 ```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+  <extensions>
+    <extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
+  </extensions>
 ```
 
 # Requirements
