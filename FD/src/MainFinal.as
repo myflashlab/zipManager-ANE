@@ -2,6 +2,7 @@ package
 {
 	import com.myflashlab.air.extensions.zip.ZipManager;
 	import com.myflashlab.air.extensions.zip.ZipManagerEvent;
+	import com.myflashlab.air.extensions.nativePermissions.PermissionCheck;
 	
 	import flash.desktop.NativeApplication;
 	import flash.desktop.SystemIdleMode;
@@ -45,7 +46,8 @@ package
 	{
 // ----------------------------------------------------------------------------------------------------------------------- vars
 		
-		private var _ex:ZipManager; // set Extension var
+		private var _ex:ZipManager;
+		private var _exPermissions:PermissionCheck = new PermissionCheck();
 		
 		private const BTN_WIDTH:Number = 150;
 		private const BTN_HEIGHT:Number = 100;
@@ -86,7 +88,7 @@ package
 			_txt.multiline = true;
 			_txt.wordWrap = true;
 			_txt.embedFonts = false;
-			_txt.htmlText = "<font face='Arimo' color='#333333' size='20'><b>Zip Manager ANE for #adobeAir (Android+iOS)</b></font>";
+			_txt.htmlText = "<font face='Arimo' color='#333333' size='20'><b>Zip Manager ANE V"+ZipManager.VERSION+" (Android+iOS)</b></font>";
 			_txt.scaleX = _txt.scaleY = DeviceInfo.dpiScaleMultiplier;
 			this.addChild(_txt);
 			
@@ -101,8 +103,7 @@ package
 			_list.vDirection = Direction.TOP_TO_BOTTOM;
 			_list.space = BTN_SPACE;
 			
-			init();
-			onResize();
+			checkPermissions();
 		}
 		
 // ----------------------------------------------------------------------------------------------------------------------- private
@@ -151,13 +152,37 @@ package
 			}
 		}
 		
+		private function checkPermissions():void
+		{
+			// first you need to make sure you have access to the Location if you are on Android?
+			var permissionState:int = _exPermissions.check(PermissionCheck.SOURCE_STORAGE);
+			
+			if (permissionState == PermissionCheck.PERMISSION_UNKNOWN || permissionState == PermissionCheck.PERMISSION_DENIED)
+			{
+				_exPermissions.request(PermissionCheck.SOURCE_STORAGE, onRequestResult);
+			}
+			else
+			{
+				init();
+			}
+			
+			function onRequestResult($state:int):void
+			{
+				if ($state != PermissionCheck.PERMISSION_GRANTED)
+				{
+					C.log("You did not allow the app the required permissions!");
+				}
+				else
+				{
+					init();
+				}
+			}
+		}
+		
 		//================================================================================================================ init Extension
 		
 		private function init():void
 		{
-			// required only if you are a member of the club
-			ZipManager.clubId = "paypal-address-you-used-to-join-the-club";
-			
 			// initialize the extension
 			_ex = new ZipManager();
 			_ex.addEventListener(ZipManagerEvent.START, onStart);
@@ -221,6 +246,8 @@ package
 			{
 				C.log(_ex.cancelZipping(true));
 			}
+			
+			onResize();
 		}
 		
 		private function onStart(e:ZipManagerEvent):void

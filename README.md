@@ -1,4 +1,4 @@
-# Zip Manager ANE V2.9.2 (Android+iOS)
+# Zip Manager ANE V3.0.0 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
@@ -20,6 +20,8 @@ you may like to see the ANE in action? [Download demo .apk](https://github.com/m
 [Download the ANE](https://github.com/myflashlab/zipManager-ANE/tree/master/FD/lib)
 
 # Air Usage
+For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/zipManager-ANE/blob/master/FD/src/MainFinal.as).
+
 ```actionscript
 import com.myflashlab.air.extensions.zip.ZipManager;
 import com.myflashlab.air.extensions.zip.ZipManagerEvent;
@@ -53,18 +55,47 @@ function onComplete(e:ZipManagerEvent):void
 }
 ```
 
-# Air .xml manifest
+# AIR .xml manifest
 ```xml
+<!--
+FOR ANDROID:
+-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+
+
+
+
+<!--
+Embedding the ANE:
+-->
   <extensions>
-    <extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
+	<extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
+	
+	<!-- Required if you are targeting AIR 24+ and have to take care of Permissions mannually -->
+	<extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
+	
+	<!-- The following dependency ANEs are only required when compiling for Android -->
+	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
+	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
   </extensions>
 ```
 
 # Requirements
+* This ANE is dependent on **androidSupport.ane** and **overrideAir.ane**. Download them from [here](https://github.com/myflashlab/common-dependencies-ANE).
 * Android SDK 10 or higher
 * iOS 6.1 or higher
+
+# Permissions
+If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
+
+Check out the demo project available at this repository to see how we have used our [PermissionCheck ANE](http://www.myflashlabs.com/product/native-access-permission-check-settings-menu-air-native-extension/) to ask for the permissions.
+
+**Necessary Permissions:**  
+none
+
+**Optional Permissions:**  
+2. PermissionCheck.SOURCE_STORAGE
 
 # Commercial Version
 http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
@@ -76,6 +107,10 @@ http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
 
 # Changelog
+*Nov 08, 2016 - V3.0.0*
+* Optimized for Android manual permissions if you are targeting AIR SDK 24+
+
+
 *Jan 20, 2016 - V2.9.2*
 * bypassing xCode 7.2 bug causing iOS conflict when compiling with AirSDK 20 without waiting on Adobe or Apple to fix the problem. This is a must have upgrade for your app to make sure you can compile multiple ANEs in your project with AirSDK 20 or greater. https://forums.adobe.com/thread/2055508 https://forums.adobe.com/message/8294948
 
