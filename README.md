@@ -109,6 +109,7 @@ http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 # Changelog
 *Nov 08, 2016 - V3.0.0*
 * Optimized for Android manual permissions if you are targeting AIR SDK 24+
+* From now on, this ANE will depend on androidSupport.ane and overrideAir.ane on the Android side
 
 
 *Jan 20, 2016 - V2.9.2*
