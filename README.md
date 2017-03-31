@@ -1,4 +1,4 @@
-# Zip Manager ANE V3.0.0 (Android+iOS)
+# Zip Manager ANE V3.0.1 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
@@ -75,7 +75,7 @@ Embedding the ANE:
 	<!-- Required if you are targeting AIR 24+ and have to take care of Permissions mannually -->
 	<extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
 	
-	<!-- The following dependency ANEs are only required when compiling for Android -->
+	<!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
 	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
 	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
   </extensions>
@@ -83,8 +83,8 @@ Embedding the ANE:
 
 # Requirements
 * This ANE is dependent on **androidSupport.ane** and **overrideAir.ane**. Download them from [here](https://github.com/myflashlab/common-dependencies-ANE).
-* Android SDK 10 or higher
-* iOS 6.1 or higher
+* Android SDK 15 or higher
+* iOS 8.0 or higher
 
 # Permissions
 If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
@@ -107,6 +107,11 @@ http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
 
 # Changelog
+*Mar 31, 2017 - V3.0.1*
+* Updated the ANE with the latest version of overrideAir. Even if you are building for iOS only, you will need this dependency.
+* Min iOS version to support this ANE is 8.0 from now on.
+* Min Android version to support this ANE is 15 from now on.
+
 *Nov 08, 2016 - V3.0.0*
 * Optimized for Android manual permissions if you are targeting AIR SDK 24+
 * From now on, this ANE will depend on androidSupport.ane and overrideAir.ane on the Android side

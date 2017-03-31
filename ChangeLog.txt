@@ -1,5 +1,10 @@
 zipManager Adobe AIR Native Extension (Android+iOS)
 
+*Mar 31, 2017 - V3.0.1*
+* Updated the ANE with the latest version of overrideAir. Even if you are building for iOS only, you will need this dependency.
+* Min iOS version to support this ANE is 8.0 from now on.
+* Min Android version to support this ANE is 15 from now on.
+
 *Nov 08, 2016 - V3.0.0*
 * Optimized for Android manual permissions if you are targeting AIR SDK 24+
 * From now on, this ANE will depend on androidSupport.ane and overrideAir.ane on the Android side

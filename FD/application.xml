@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/24.0">
   <id>com.doitflash.exZipManager</id>
-  <versionNumber>3.0.0</versionNumber>
+  <versionNumber>3.0.1</versionNumber>
   <supportedProfiles>mobileDevice</supportedProfiles>
   <filename>exZipManager</filename>
   <name>ZIP ANE</name>
@@ -34,7 +34,7 @@
 	<!--http://help.adobe.com/en_US/air/build/WSfffb011ac560372f7e64a7f12cd2dd1867-8000.html-->
     <InfoAdditions>
 		<![CDATA[<key>MinimumOSVersion</key>
-		<string>6.1</string>
+		<string>8.0</string>
 		<key>UIStatusBarStyle</key>
 		<string>UIStatusBarStyleBlackOpaque</string>
 		<key>UIRequiresPersistentWiFi</key>
@@ -81,7 +81,7 @@
 	<!-- Required if you are targetting AIR 24+ and have to take care of Permissions mannually -->
 	<extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
 	
-	<!-- The following dependency ANEs are only required when compiling for Android -->
+	<!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
 	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
 	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
 	
