@@ -1,26 +1,22 @@
-# Zip Manager ANE V3.0.1 (Android+iOS)
+# Zip Manager ANE V3.0.2 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
 
-– They load the whole zip into runtime and then try to zip/unzip reading bytes which is too time consuming
-– loading a big zip file using AS3 libraries will fail on mobile devices because it takes too much RAM
-– AS workers are not yet supported on iOS and your Air UI will freez untill the process is finished!
-– the bottom line is that AS3 libs for handling zip files are TOO slow and not practical
+ï¿½ They load the whole zip into runtime and then try to zip/unzip reading bytes which is too time consuming
+ï¿½ loading a big zip file using AS3 libraries will fail on mobile devices because it takes too much RAM
+ï¿½ AS workers are not yet supported on iOS and your Air UI will freez untill the process is finished!
+ï¿½ the bottom line is that AS3 libs for handling zip files are TOO slow and not practical
 
 using this extension will solve all the above problems. you will be amazed how fast it works no matter the size of the zip file. we tested with a ~1GB zip archive and it worked just fine :) 
 
 # asdoc
 [find the latest asdoc for this ANE here.](http://myflashlab.github.io/asdoc/com/myflashlab/air/extensions/zip/package-detail.html)
 
-# Demo .apk
-you may like to see the ANE in action? [Download demo .apk](https://github.com/myflashlab/zipManager-ANE/tree/master/FD/dist)
-
-**NOTICE**: the demo ANE works only after you hit the "OK" button in the dialog which opens. in your tests make sure that you are NOT calling other ANE methods prior to hitting the "OK" button.
-[Download the ANE](https://github.com/myflashlab/zipManager-ANE/tree/master/FD/lib)
+[Download demo ANE](https://github.com/myflashlab/zipManager-ANE/tree/master/AIR/lib)
 
 # Air Usage
-For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/zipManager-ANE/blob/master/FD/src/MainFinal.as).
+For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/zipManager-ANE/blob/master/AIR/src/Main.as).
 
 ```actionscript
 import com.myflashlab.air.extensions.zip.ZipManager;
@@ -107,6 +103,9 @@ http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
 
 # Changelog
+*Dec 15, 2017 - V3.0.2*
+* optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
+
 *Mar 31, 2017 - V3.0.1*
 * Updated the ANE with the latest version of overrideAir. Even if you are building for iOS only, you will need this dependency.
 * Min iOS version to support this ANE is 8.0 from now on.

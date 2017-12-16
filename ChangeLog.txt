@@ -1,5 +1,8 @@
 zipManager Adobe AIR Native Extension (Android+iOS)
 
+*Dec 15, 2017 - V3.0.2*
+* optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
+
 *Mar 31, 2017 - V3.0.1*
 * Updated the ANE with the latest version of overrideAir. Even if you are building for iOS only, you will need this dependency.
 * Min iOS version to support this ANE is 8.0 from now on.
