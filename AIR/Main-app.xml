@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<application xmlns="http://ns.adobe.com/air/application/25.0">
+<application xmlns="http://ns.adobe.com/air/application/30.0">
     <id>com.doitflash.exZipManager</id>
-    <versionNumber>3.0.2</versionNumber>
+    <versionNumber>3.0.3</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>exZipManager</filename>
     <name>ZIP ANE</name>
@@ -10,8 +10,7 @@
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-	<!--The new Permission thing on Android works ONLY if you are targetting Android SDK 23 or higher-->
-	<uses-sdk android:targetSdkVersion="23"/>
+	<uses-sdk android:targetSdkVersion="26"/>
 
 	<application>
 		<activity>
@@ -78,7 +77,7 @@
     <extensions>
         <extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
 
-        <!-- Required if you are targetting AIR 24+ and have to take care of Permissions mannually -->
+        <!-- Required if you are targetting AIR 24+ and have to take care of Permissions manually -->
         <extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
 
         <!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->

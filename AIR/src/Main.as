@@ -1,7 +1,7 @@
 package
 {
-import com.myflashlab.air.extensions.zip.ZipManager;
-import com.myflashlab.air.extensions.zip.ZipManagerEvent;
+import com.myflashlab.air.extensions.dependency.OverrideAir;
+import com.myflashlab.air.extensions.zip.*;
 import com.myflashlab.air.extensions.nativePermissions.PermissionCheck;
 
 import flash.desktop.NativeApplication;
@@ -12,10 +12,7 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.events.MouseEvent;
-import flash.events.StageOrientationEvent;
-import flash.events.StatusEvent;
 import flash.text.AntiAliasType;
-import flash.text.AutoCapitalize;
 import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
 import flash.text.TextFormat;
@@ -39,7 +36,7 @@ import com.doitflash.mobileProject.commonCpuSrc.DeviceInfo;
 
 /**
  * ...
- * @author Majid Hejazi - 11/7/2014 11:10 AM
+ * @author Hadi Tavakoli - 7/17/2018 11:10 AM
  */
 
 public class Main extends Sprite
@@ -179,10 +176,18 @@ public class Main extends Sprite
 		}
 	}
 
-	//================================================================================================================ init Extension
-
+	//====================================================================================== init Extension
+	
+	private function myDebuggerDelegate($ane:String, $class:String, $msg:String):void
+	{
+		trace($ane+"("+$class+") "+$msg);
+	}
+	
 	private function init():void
 	{
+		// remove this line in production build or pass null as the delegate
+		OverrideAir.enableDebugger(myDebuggerDelegate);
+		
 		// initialize the extension
 		_ex = new ZipManager();
 		_ex.addEventListener(ZipManagerEvent.START, onStart);
@@ -193,8 +198,9 @@ public class Main extends Sprite
 		// copy the zip to sdcard so Android can access it
 		var src:File = File.applicationDirectory.resolvePath("zipTest.zip");
 		var dis:File = File.documentsDirectory.resolvePath("zipManager_ANE/zipTest.zip");
-		if(!dis.exists) src.copyTo(dis);
-
+		if(dis.exists) dis.deleteFile();
+		src.copyTo(dis);
+		
 		// ----------------------
 
 		var btn1:MySprite = createBtn("1) to unzip");
@@ -205,8 +211,9 @@ public class Main extends Sprite
 		{
 			var zipFile:File = File.documentsDirectory.resolvePath("zipManager_ANE/zipTest.zip");
 			var unzipLocation:File = File.documentsDirectory.resolvePath("zipManager_ANE/unzipLocation");
+			if(unzipLocation.exists) unzipLocation.deleteDirectory(true);
 
-			C.log("a bunch of demo images will be extracted just as a demo for you to see how fast this works!")
+			C.log("a bunch of demo images will be extracted just as a demo for you to see how fast this works!");
 
 			_ex.unzip(zipFile, unzipLocation);
 		}
@@ -230,7 +237,8 @@ public class Main extends Sprite
 
 		function zip(e:MouseEvent):void
 		{
-			var zipFile:File = File.documentsDirectory.resolvePath("zipManager_ANE/new.zip");
+			var zipFile:File = File.documentsDirectory.resolvePath("zipManager_ANE/zipTest.zip");
+			if(zipFile.exists) zipFile.deleteFile();
 			var zipDir:File = File.documentsDirectory.resolvePath("zipManager_ANE/unzipLocation");
 
 			_ex.zip(zipFile, zipDir);
@@ -269,9 +277,6 @@ public class Main extends Sprite
 	{
 		C.log("[zip process finished]");
 	}
-
-	// -----------------------------------------------------------------------------------------------------------------------
-
 
 
 

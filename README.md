@@ -1,12 +1,10 @@
-# Zip Manager ANE V3.0.2 (Android+iOS)
+# Zip Manager ANE V3.0.3 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
 
-� They load the whole zip into runtime and then try to zip/unzip reading bytes which is too time consuming
-� loading a big zip file using AS3 libraries will fail on mobile devices because it takes too much RAM
-� AS workers are not yet supported on iOS and your Air UI will freez untill the process is finished!
-� the bottom line is that AS3 libs for handling zip files are TOO slow and not practical
+* They load the whole zip into runtime and then try to zip/unzip reading bytes which is too time consuming
+* loading a big zip file using AS3 libraries will fail on mobile devices because it takes too much RAM
 
 using this extension will solve all the above problems. you will be amazed how fast it works no matter the size of the zip file. we tested with a ~1GB zip archive and it worked just fine :) 
 
@@ -19,8 +17,7 @@ using this extension will solve all the above problems. you will be amazed how f
 For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/zipManager-ANE/blob/master/AIR/src/Main.as).
 
 ```actionscript
-import com.myflashlab.air.extensions.zip.ZipManager;
-import com.myflashlab.air.extensions.zip.ZipManagerEvent;
+import com.myflashlab.air.extensions.zip.*;
 
 var _ex:ZipManager = new ZipManager();
 _ex.addEventListener(ZipManagerEvent.START, onStart);
@@ -81,6 +78,7 @@ Embedding the ANE:
 * This ANE is dependent on **androidSupport.ane** and **overrideAir.ane**. Download them from [here](https://github.com/myflashlab/common-dependencies-ANE).
 * Android SDK 15 or higher
 * iOS 8.0 or higher
+* AIR SDK 29+
 
 # Permissions
 If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
@@ -96,13 +94,16 @@ none
 # Commercial Version
 http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
-![Zip Manager ANE](http://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-zip-manager-595x738.jpg)
+![Zip Manager ANE](https://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-zip-manager-595x738.jpg)
 
 # Tutorials
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 
 # Changelog
+*Jul 17, 2018 - V3.0.3*
+* fixed bug [#12](https://github.com/myflashlab/zipManager-ANE/issues/12)
+
 *Dec 15, 2017 - V3.0.2*
 * optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
 
