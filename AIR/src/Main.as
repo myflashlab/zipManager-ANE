@@ -2,7 +2,6 @@ package
 {
 import com.myflashlab.air.extensions.dependency.OverrideAir;
 import com.myflashlab.air.extensions.zip.*;
-import com.myflashlab.air.extensions.nativePermissions.PermissionCheck;
 
 import flash.desktop.NativeApplication;
 import flash.desktop.SystemIdleMode;
@@ -44,7 +43,6 @@ public class Main extends Sprite
 	// ----------------------------------------------------------------------------------------------------------------------- vars
 
 	private var _ex:ZipManager;
-	private var _exPermissions:PermissionCheck = new PermissionCheck();
 
 	private const BTN_WIDTH:Number = 150;
 	private const BTN_HEIGHT:Number = 100;
@@ -100,7 +98,7 @@ public class Main extends Sprite
 		_list.vDirection = Direction.TOP_TO_BOTTOM;
 		_list.space = BTN_SPACE;
 
-		checkPermissions();
+		init();
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------------- private
@@ -149,33 +147,6 @@ public class Main extends Sprite
 		}
 	}
 
-	private function checkPermissions():void
-	{
-		// first you need to make sure you have access to the Location if you are on Android?
-		var permissionState:int = _exPermissions.check(PermissionCheck.SOURCE_STORAGE);
-
-		if (permissionState == PermissionCheck.PERMISSION_UNKNOWN || permissionState == PermissionCheck.PERMISSION_DENIED)
-		{
-			_exPermissions.request(PermissionCheck.SOURCE_STORAGE, onRequestResult);
-		}
-		else
-		{
-			init();
-		}
-
-		function onRequestResult($state:int):void
-		{
-			if ($state != PermissionCheck.PERMISSION_GRANTED)
-			{
-				C.log("You did not allow the app the required permissions!");
-			}
-			else
-			{
-				init();
-			}
-		}
-	}
-
 	//====================================================================================== init Extension
 	
 	private function myDebuggerDelegate($ane:String, $class:String, $msg:String):void
@@ -195,9 +166,9 @@ public class Main extends Sprite
 		_ex.addEventListener(ZipManagerEvent.PROGRESS, onProgress);
 		_ex.addEventListener(ZipManagerEvent.COMPLETED, onComplete);
 
-		// copy the zip to sdcard so Android can access it
+		// copy the zip to File.applicationStorageDirectory first
 		var src:File = File.applicationDirectory.resolvePath("zipTest.zip");
-		var dis:File = File.documentsDirectory.resolvePath("zipManager_ANE/zipTest.zip");
+		var dis:File = File.applicationStorageDirectory.resolvePath("zipManager_ANE/zipTest.zip");
 		if(dis.exists) dis.deleteFile();
 		src.copyTo(dis);
 		
@@ -209,8 +180,8 @@ public class Main extends Sprite
 
 		function unzip(e:MouseEvent):void
 		{
-			var zipFile:File = File.documentsDirectory.resolvePath("zipManager_ANE/zipTest.zip");
-			var unzipLocation:File = File.documentsDirectory.resolvePath("zipManager_ANE/unzipLocation");
+			var zipFile:File = File.applicationStorageDirectory.resolvePath("zipManager_ANE/zipTest.zip");
+			var unzipLocation:File = File.applicationStorageDirectory.resolvePath("zipManager_ANE/unzipLocation");
 			if(unzipLocation.exists) unzipLocation.deleteDirectory(true);
 
 			C.log("a bunch of demo images will be extracted just as a demo for you to see how fast this works!");
@@ -237,9 +208,9 @@ public class Main extends Sprite
 
 		function zip(e:MouseEvent):void
 		{
-			var zipFile:File = File.documentsDirectory.resolvePath("zipManager_ANE/zipTest.zip");
+			var zipFile:File = File.applicationStorageDirectory.resolvePath("zipManager_ANE/zipTest.zip");
 			if(zipFile.exists) zipFile.deleteFile();
-			var zipDir:File = File.documentsDirectory.resolvePath("zipManager_ANE/unzipLocation");
+			var zipDir:File = File.applicationStorageDirectory.resolvePath("zipManager_ANE/unzipLocation");
 
 			_ex.zip(zipFile, zipDir);
 		}

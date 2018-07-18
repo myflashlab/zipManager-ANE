@@ -1,4 +1,4 @@
-# Zip Manager ANE V3.0.3 (Android+iOS)
+# Zip Manager ANE V3.1.0 (Android+iOS)
 ZipManager class will zip or unzip large zip archives super fast using native process in threads supporting both Android and iOS. you will have listeners to watch the process progress. you have the option to cancel a zip or unzip progress. it's job is to concentrate on zip archiving and it does it in the best possible way!
 
 in AS3, there are many different zip libraries which will do the same thing but they are not good enough when it comes to mobile usage because of the following reasons:
@@ -25,7 +25,7 @@ _ex.addEventListener(ZipManagerEvent.ERROR, onError);
 _ex.addEventListener(ZipManagerEvent.PROGRESS, onProgress);
 _ex.addEventListener(ZipManagerEvent.COMPLETED, onComplete);
 
-_ex.unzip(File.documentsDirectory.resolvePath("TheZipFile.zip"), File.documentsDirectory.resolvePath("unzipLocation"));
+_ex.unzip(File.applicationStorageDirectory.resolvePath("TheZipFile.zip"), File.applicationStorageDirectory.resolvePath("unzipLocation"));
 
 function onStart(e:ZipManagerEvent):void
 {
@@ -50,28 +50,13 @@ function onComplete(e:ZipManagerEvent):void
 
 # AIR .xml manifest
 ```xml
-<!--
-FOR ANDROID:
--->
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<extensions>
+  <extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
 
-
-
-
-
-<!--
-Embedding the ANE:
--->
-  <extensions>
-	<extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
-	
-	<!-- Required if you are targeting AIR 24+ and have to take care of Permissions mannually -->
-	<extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
-	
-	<!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
-	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
-	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
-  </extensions>
+  <!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
+  <extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
+  <extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
+</extensions>
 ```
 
 # Requirements
@@ -81,7 +66,7 @@ Embedding the ANE:
 * AIR SDK 29+
 
 # Permissions
-If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
+If you are targeting AIR 24 or higher and you need to zip/unzip files at ```File.documentsDirectory```, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
 
 Check out the demo project available at this repository to see how we have used our [PermissionCheck ANE](http://www.myflashlabs.com/product/native-access-permission-check-settings-menu-air-native-extension/) to ask for the permissions.
 
@@ -101,6 +86,9 @@ http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
 
 # Changelog
+*Jul 18, 2018 - V3.1.0*
+* fixed bug [#13](https://github.com/myflashlab/zipManager-ANE/issues/13)
+
 *Jul 17, 2018 - V3.0.3*
 * fixed bug [#12](https://github.com/myflashlab/zipManager-ANE/issues/12)
 

@@ -1,5 +1,8 @@
 zipManager Adobe AIR Native Extension (Android+iOS)
 
+*Jul 18, 2018 - V3.1.0*
+* fixed bug [#13](https://github.com/myflashlab/zipManager-ANE/issues/13)
+
 *Jul 17, 2018 - V3.0.3*
 * fixed bug [#12](https://github.com/myflashlab/zipManager-ANE/issues/12)
 
