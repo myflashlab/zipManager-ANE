@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/30.0">
     <id>com.doitflash.exZipManager</id>
-    <versionNumber>3.1.0</versionNumber>
+    <versionNumber>3.1.1</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>exZipManager</filename>
     <name>ZIP ANE</name>
     <android>
         <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-sdk android:targetSdkVersion="26"/>
 
-	<uses-sdk android:targetSdkVersion="26"/>
+        <application>
+            <activity>
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+        </application>
 
-	<application>
-		<activity>
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-	</application>
-</manifest>]]></manifestAdditions>
+    </manifest>]]></manifestAdditions>
     </android>
 
     <iPhone>
-        <!--https://developer.apple.com/library/ios/documentation/general/reference/infoplistkeyreference/Articles/iPhoneOSKeys.html-->
-        <!--http://help.adobe.com/en_US/air/build/WSfffb011ac560372f7e64a7f12cd2dd1867-8000.html-->
+
         <InfoAdditions>
             <![CDATA[<key>MinimumOSVersion</key>
 		<string>8.0</string>
@@ -76,8 +75,7 @@
     <extensions>
         <extensionID>com.myflashlab.air.extensions.zipManager</extensionID>
 
-        <!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
-        <extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
+        <!-- dependency ANEs https://github.com/myflashlab/common-dependencies-ANE -->
         <extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
 
     </extensions>
