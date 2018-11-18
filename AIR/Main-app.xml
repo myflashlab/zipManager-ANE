@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/30.0">
     <id>com.doitflash.exZipManager</id>
-    <versionNumber>3.1.1</versionNumber>
+    <versionNumber>3.1.2</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>exZipManager</filename>
     <name>ZIP ANE</name>
