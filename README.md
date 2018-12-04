@@ -73,9 +73,9 @@ Necessary | Optional
 - | [SOURCE_STORAGE](https://myflashlab.github.io/asdoc/com/myflashlab/air/extensions/nativePermissions/PermissionCheck.html#SOURCE_STORAGE)  
 
 # Commercial Version
-http://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
+https://www.myflashlabs.com/product/zip-ane-adobe-air-native-extension/
 
-![Zip Manager ANE](https://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-zip-manager-595x738.jpg)
+![Zip Manager ANE](https://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-zip-manager-2018-595x738.jpg)
 
 # Tutorials
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
