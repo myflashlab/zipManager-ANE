@@ -1,5 +1,10 @@
 zipManager Adobe AIR Native Extension (Android+iOS)
 
+*Aug 4, 2019 - V3.1.21*
+* Added Android 64-bit support
+* Supports iOS 10+
+* Removed **.os** property, use ```OverrideAir.os``` instead.
+
 *Nov 18, 2018 - V3.1.2*
 * Works with OverrideAir ANE V5.6.1 or higher
 * Works with ANELAB V1.1.26 or higher

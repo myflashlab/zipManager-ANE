@@ -59,7 +59,7 @@ function onComplete(e:ZipManagerEvent):void
 
 # Requirements
 * Android SDK 15+
-* iOS 8.0+
+* iOS 10.0+
 * AIR SDK 30+
 
 # Permissions
