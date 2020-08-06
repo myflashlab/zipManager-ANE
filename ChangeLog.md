@@ -1,5 +1,9 @@
 zipManager Adobe AIR Native Extension (Android+iOS)
 
+*Aug 01, 2020 - v4.0.0*
+- Upgrade dependencies to the latest versions.
+- Fixed some minor issues and refactor native codes.
+
 *Aug 4, 2019 - V3.1.21*
 * Added Android 64-bit support
 * Supports iOS 10+
